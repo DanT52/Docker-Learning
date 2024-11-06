@@ -2,19 +2,16 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 import random
 from random import randint, choice
+import os
 
 app = FastAPI()
 
-# List your allowed origins explicitly, such as "http://localhost:3000"
-origins = [
-    "http://localhost:3000",  # For local testing
-    "http://frontend:3000",   # For Docker Compose
-]
 
-# Add CORS middleware to FastAPI app
+# Configure CORS
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # You can also set ["*"] for testing
+    allow_origins=allowed_origins,  # Use the environment variable
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
