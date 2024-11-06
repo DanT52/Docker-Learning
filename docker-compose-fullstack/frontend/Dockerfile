@@ -1,21 +1,14 @@
-# Use Node.js as the base image
-FROM node:18-alpine
+# Use Nginx as the base image
+FROM nginx:alpine
 
-# Set working directory
-WORKDIR /app
+# Remove default Nginx static files and copy your app files
+RUN rm -rf /usr/share/nginx/html/*
 
-# Copy package.json and install dependencies
-COPY package.json ./
-RUN npm install
-
-# Copy all app files
-COPY . .
-
-# Build the app
-RUN npm run build
+# Copy the frontend src to Nginx's html directory
+COPY src/ /usr/share/nginx/html
 
 # Expose the frontend port
-EXPOSE 3000
+EXPOSE 80
 
-# Start the Next.js server
-CMD ["npm", "start"]
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]

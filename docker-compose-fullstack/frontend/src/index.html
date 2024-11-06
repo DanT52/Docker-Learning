@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skate Route Planner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="title">Skate Route Planner</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2 class="card-title">Plan Your Skate Adventure</h2>
+            <a href="#" class="button">
+                <i class="fas fa-map-marker-alt"></i>
+                Today's Route
+            </a>
+            
+            <div class="slider-container">
+                <label id="slider-label" class="slider-label">Difficulty: 50%</label>
+                <input id="difficulty-slider" type="range" min="0" max="100" value="50" class="slider">
+            </div>
+
+            <a href="#" id="go-button" class="button primary">
+                <i class="fas fa-arrow-right"></i>
+                Go
+            </a>
+        </div>
+
+        <div id="route-info" class="card route-info hidden">
+            <h2 class="card-title">Your Skate Route</h2>
+            
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="distance">Distance: 5.2 miles</span>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-road"></i>
+                <span id="terrain">Terrain: Mixed urban and park paths, some gentle hills</span>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-mountain"></i>
+                <span id="elevation_gain">Elevation Gain: 150 ft</span>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-bolt"></i>
+                <span id="max_speed">Max Potential Speed: 18 mph</span>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-car"></i>
+                <span id="traffic">Traffic: Light to moderate, mostly on dedicated paths</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2024 Skate Route Planner. Roll safely!
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
