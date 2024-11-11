@@ -13,11 +13,14 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Build the React application
+# Build the Vite application
 RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 4173
+# Install 'serve' to serve the static files
+RUN npm install -g serve
 
-# Start the application
-CMD ["npm", "run", "preview"]
+# Expose the port where the app will be hosted
+EXPOSE 3000
+
+# Use 'serve' to host the build files on port 8000
+CMD ["serve", "-s", "dist", "-l", "3000"]
