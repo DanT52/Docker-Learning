@@ -34,8 +34,9 @@ function App() {
           </button>
           
           <div className="slider-container">
-            <label className="slider-label">Difficulty: {difficulty}%</label>
+            <label className="slider-label" htmlFor="difficulty-slider">Difficulty: {difficulty}%</label>
             <input
+              id="difficulty-slider"
               type="range"
               min="0"
               max="100"
